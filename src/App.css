@@ -1,3 +1,27 @@
+@font-face {
+  font-family: 'Bigilla';
+  src: url('assets/fonts/woff 2/Bigilla.woff2') format('woff2'), 
+       url('assets/fonts/woff/Bigilla.woff') format('woff');   
+  font-weight: 700; /* Corresponds to Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('./assets/fonts/woff 2/Classy Coiffeur Regular.woff2') format('woff2'),
+       url('./assets/fonts/woff/Classy Coiffeur Regular.woff') format('woff');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('./assets/fonts/woff 2/LibreCaslonDisplay-Regular.woff2') format('woff2'),
+       url('./assets/fonts/woff/LibreCaslonDisplay-Regular.woff') format('woff');
+  font-weight: 200; /* Light */
+  font-style: normal;
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -11,7 +35,14 @@ body, html {
 .app {
   width: 100%;
   height: 100%;
+  min-height: 100vh; /* Ensure it covers viewport height */
   position: relative;
+}
+
+.app.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .screensaver {
@@ -20,7 +51,12 @@ body, html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #001f3f;
+  /* background-color: #001f3f; Remove old background */
+  /* New background from Figma */
+  background:
+    radial-gradient(132.73% 115.46% at 83.93% 2.5%, rgba(255, 255, 255, 0.55) 0%, rgba(3, 53, 93, 0.28) 40.6%, rgba(3, 53, 93, 0.55) 70.1%),
+    linear-gradient(0deg, rgba(3, 53, 93, 0.35) 0%, rgba(3, 53, 93, 0.35) 100%),
+    url('./assets/images/screensaver-bg.png') lightgray 50% / cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,40 +84,50 @@ body, html {
 }
 
 .logo-container {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; Remove old margin */
+  width: 70%; /* Adjust as needed */
+  max-width: 500px; /* Prevent logo from becoming too large */
+  /* height: 120px; Remove fixed height */
+  aspect-ratio: 1945.92 / 435.98; /* Set aspect ratio from Figma */
+  background: url('./assets/images/logo-full.png') no-repeat center center;
+  background-size: contain;
+  margin-bottom: 10px; /* Add some space below the logo */
 }
 
-.logo-text {
-  font-family: serif;
-  font-size: 3.5em;
-  font-weight: bold;
-  color: #e6f1ff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  margin-right: 15px;
-}
-
-.logo-year {
-  font-family: serif;
-  font-size: 2em;
-  font-weight: bold;
-  color: #e6f1ff;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-  vertical-align: middle;
+/* Style for the fish image placeholder */
+.fish-image {
+  width: 50%; /* Adjust as needed */
+  max-width: 350px; /* Prevent fish from becoming too large */
+  height: 80px; /* Adjust height based on aspect ratio / desired size */
+  background: url('./assets/images/fish.png') no-repeat center center;
+  background-size: contain;
+  margin-top: -30px; /* Overlap fish slightly with logo */
+  margin-bottom: 30px; /* Space before button */
+  z-index: 10; /* Ensure fish is above logo if overlapping */
+  position: relative; /* Needed for z-index */
 }
 
 .screensaver-button {
-  background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  color: rgba(255, 255, 255, 0.8);
-  padding: 10px 25px;
-  border-radius: 25px;
-  font-size: 1.1em;
-  font-weight: 300;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  margin-top: 120px;
-  position: relative;
+
+  /* New styles from Figma (scaled down) */
+  font-family: 'Bigilla', serif; /* Use Bigilla font with fallback */
+  font-size: 3rem; /* Scaled down from 80.943px */
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: normal;
+  display: inline-flex; /* Use flex for centering text if needed */
+  padding: 26.793px 80.379px; /* Apply exact Figma padding */
+  justify-content: center;
+  align-items: center;
+  gap: 8.931px; /* Apply exact Figma gap */
+  border-radius: 71.448px; /* Apply exact Figma radius */
+  border: 1.34px solid #FFF; /* Apply exact Figma border */
+  background-color: transparent; /* Ensure background is transparent */
+  margin-top: 20px; /* Adjust spacing as needed */
   z-index: 1;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .screensaver-button:hover {
@@ -90,23 +136,37 @@ body, html {
 }
 
 .form-container {
-  position: absolute;
-  top:  50vh;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(10, 25, 47, 0.85);
-  padding: 50px 60px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  /* Remove absolute positioning */
+  /* position: absolute; */
+  /* top:  50vh; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  
   width: 90%;
-  max-width: 550px;
+  max-width: 550px; /* Keep max-width, adjust if needed */
+  padding: 50px 60px; /* Keep existing padding, adjust if needed based on Figma */
+
+  /* New styles from Figma */
+  display: flex; /* Added to control internal layout */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center content horizontally */
+  /* gap: 22.538px; Gap is better applied between form elements */
+  border-radius: 45.076px; /* Apply Figma radius */
+  border: 2.254px solid rgba(255, 255, 255, 0.80); /* Apply Figma border */
+  /* Apply new combined background from specs */
+  background: 
+    radial-gradient(132.73% 115.46% at 83.93% 2.5%, rgba(255, 255, 255, 0.55) 0%, rgba(3, 53, 93, 0.28) 40.6%, rgba(3, 53, 93, 0.55) 70.1%),
+    url('assets/images/form-bg.png') lightgray 50% / cover no-repeat;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); /* Apply Figma shadow */
+
+  /* Keep existing transition styles */
   opacity: 0;
   transition: opacity 0.5s ease-in 0.3s;
   pointer-events: none;
   z-index: 50;
-  text-align: center;
-  color: #ccd6f6;
+  text-align: center; /* Keep text-align for text elements */
+  color: #ccd6f6; /* Keep existing text color */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .form-container.active {
@@ -115,18 +175,38 @@ body, html {
 }
 
 .form-container h1 {
-  font-size: 2.2em;
-  margin-bottom: 15px;
-  color: #e6f1ff;
-  font-weight: 300;
+  /* font-size: 2.2em; Remove old size */
+  /* margin-bottom: 15px; Remove old margin */
+  /* color: #e6f1ff; Remove old color */
+  /* font-weight: 300; Remove old weight */
+  /* New styles from Figma */
+  color: rgba(255, 255, 255, 0.80);
+  text-align: center;
+  font-family: 'Bigilla', serif; /* Use Bigilla font */
+  font-size: 4rem; /* Scaled down from 110.94px */
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.2; /* Adjust line-height */
+  align-self: stretch;
+  margin-bottom: 1rem; /* Adjust margin */
 }
 
 .form-container h2 {
-  font-size: 1.1em;
-  margin-bottom: 40px;
-  color: #a8b2d1;
-  font-weight: 300;
-  line-height: 1.5;
+  /* font-size: 1.1em; Remove old size */
+  /* margin-bottom: 40px; Remove old margin */
+  /* color: #a8b2d1; Remove old color */
+  /* font-weight: 300; Remove old weight */
+  /* line-height: 1.5; Remove old line-height */
+  /* New styles from Figma */
+  color: rgba(255, 255, 255, 0.80);
+  text-align: center;
+  font-family: 'Raleway', sans-serif; /* Use Raleway font */
+  font-size: 1.5rem; /* Scaled down from 48.49px */
+  font-style: normal;
+  font-weight: 200; /* Light weight */
+  line-height: 1.4; /* Adjust line-height */
+  align-self: stretch;
+  margin-bottom: 2.5rem; /* Adjust margin */
 }
 
 .form-group {
@@ -145,14 +225,27 @@ body, html {
 .form-group input[type="text"],
 .form-group input[type="email"] {
   width: 100%;
-  padding: 15px;
-  background-color: #e0e4e8;
-  border: none;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #1d2a3d;
-  font-size: 1em;
+  /* padding: 15px; Remove old padding */
+  /* background-color: #e0e4e8; Remove old background */
+  /* border: none; Remove old border */
+  /* border-radius: 8px; Remove old radius */
+  /* color: #1d2a3d; Remove old color */
+  /* font-size: 1em; Remove old font size */
+  /* transition: box-shadow 0.2s ease-in-out; Keep transition */
+
+  /* New styles from Figma */
+  padding: 18.03px 36.061px; /* Apply Figma padding */
+  /* flex-direction: column; These apply to the container, not the input itself */
+  /* align-items: flex-start; */
+  /* gap: 22.538px; */
+  border-radius: 18.03px; /* Apply Figma radius */
+  background: rgba(255, 255, 255, 0.80); /* Apply Figma background */
+  border: none; /* Ensure no default border */
+  color: #1d2a3d; /* Keep dark text color for readability */
+  font-size: 1rem; /* Adjust if needed */
+  box-sizing: border-box; /* Keep box-sizing */
   transition: box-shadow 0.2s ease-in-out;
+  height: auto; /* Allow height to be determined by padding and content */
 }
 
 .form-group input[type="text"]:focus,
@@ -171,39 +264,103 @@ body, html {
 }
 
 .checkbox-group input[type="checkbox"] {
-  margin-right: 12px;
-  width: 18px;
-  height: 18px;
+  /* margin-right: 12px; Remove old margin */
+  /* width: 18px; Remove old width */
+  /* height: 18px; Remove old height */
+  /* cursor: pointer; Keep cursor */
+  /* accent-color: #a8b2d1; Remove accent color */
   cursor: pointer;
-  accent-color: #a8b2d1;
+
+  /* New styles from Figma */
+  appearance: none; /* Remove default styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 45.076px; /* Apply Figma width */
+  height: 45.076px; /* Apply Figma height */
+  border-radius: 13.523px; /* Apply Figma radius */
+  background-color: var(--Orange, #E35205); /* Apply Figma background */
+  flex-shrink: 0;
+  position: relative; /* Needed for pseudo-element positioning */
+  margin-right: 15px; /* Add some space between checkbox and label */
+  border: none; /* Ensure no border */
+  outline: none; /* Ensure no outline */
+}
+
+/* Style for the checkmark */
+.checkbox-group input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  display: none; /* Hide by default */
+  left: 15px; /* Adjust position */
+  top: 7px; /* Adjust position */
+  width: 12px; /* Checkmark size */
+  height: 24px; /* Checkmark size */
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+}
+
+/* Show the checkmark when checked */
+.checkbox-group input[type="checkbox"]:checked::after {
+  display: block;
 }
 
 .checkbox-group label {
+  /* margin-bottom: 0; Keep */
+  /* font-weight: 300; Remove old weight */
+  /* color: #a8b2d1; Remove old color */
+  /* font-size: 0.95em; Remove old size */
+  /* cursor: pointer; Keep cursor */
   margin-bottom: 0;
-  font-weight: 300;
-  color: #a8b2d1;
-  font-size: 0.95em;
   cursor: pointer;
+
+  /* New styles from Figma (first block) */
+  color: rgba(255, 255, 255, 0.80);
+  text-align: left; /* Align text to the left relative to checkbox */
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem; /* Scaled down from 31.553px */
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .cta-button {
-  background-color: #0a192f;
-  color: #e6f1ff;
-  padding: 15px 35px;
-  border: 1px solid #172a45;
-  border-radius: 8px;
-  font-size: 1.1em;
-  font-weight: 400;
+  /* background-color: #0a192f; Remove old background */
+  /* color: #e6f1ff; Remove old color */
+  /* padding: 15px 35px; Remove old padding */
+  /* border: 1px solid #172a45; Remove old border */
+  /* border-radius: 8px; Remove old radius */
+  /* font-size: 1.1em; Remove old font size */
+  /* font-weight: 400; Keep font weight */
+  /* cursor: pointer; Keep cursor */
+  /* transition: background-color 0.3s ease, border-color 0.3s ease; Keep transition */
+  /* margin-top: 10px; Remove old margin */
+  /* width: 100%; Keep width */
+  /* box-sizing: border-box; Keep box-sizing */
+
+  /* New styles from Figma */
+  display: flex;
+  width: 100%; /* Keep full width */
+  padding: 38.315px 36.061px; /* Apply Figma padding */
+  justify-content: center;
+  align-items: center;
+  gap: 22.538px; /* Apply Figma gap */
+  border-radius: 27.046px; /* Apply Figma radius */
+  background: #E35205; /* Apply Figma background */
+  border: none; /* Remove border */
+  color: white; /* Set text color */
+  font-size: 1.2rem; /* Adjust font size as needed */
+  font-weight: 400; /* Keep weight */
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  margin-top: 10px;
-  width: 100%;
+  transition: background-color 0.3s ease; /* Adjust transition */
+  margin-top: 20px; /* Add some margin */
   box-sizing: border-box;
 }
 
 .cta-button:hover {
-  background-color: #172a45;
-  border-color: #2a3f5a;
+  /* background-color: #172a45; Remove old hover background */
+  /* border-color: #2a3f5a; Remove old hover border */
+  background-color: #c84a04; /* Darken orange on hover */
 }
 
 .form-errors .error-message,
@@ -227,31 +384,156 @@ body, html {
 }
 
 .thank-you-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(10, 25, 47, 0.85);
-  padding: 50px 60px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  /* background-color: rgba(10, 25, 47, 0.85); Remove old background */
+  /* padding: 50px 60px; Keep existing padding for now */
+  /* border-radius: 16px; Remove old radius */
+  /* border: 1px solid rgba(255, 255, 255, 0.2); Remove old border */
+  /* box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); Remove old shadow */
   width: 90%;
-  max-width: 550px;
+  max-width: 550px; /* Keep max-width, same as form */
+  padding: 50px 60px; /* Keep padding, adjust if needed */
   text-align: center;
-  color: #ccd6f6;
+  color: #ccd6f6; /* Keep text color */
+
+  /* Apply styles from form-container */
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  border-radius: 45.076px; /* Apply Figma radius */
+  border: 2.254px solid rgba(255, 255, 255, 0.80); /* Apply Figma border */
+  background: 
+    radial-gradient(132.73% 115.46% at 83.93% 2.5%, rgba(255, 255, 255, 0.55) 0%, rgba(3, 53, 93, 0.28) 40.6%, rgba(3, 53, 93, 0.55) 70.1%),
+    url('assets/images/form-bg.png') lightgray 50% / cover no-repeat;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); /* Apply Figma shadow */
 }
 
 .thank-you-container h1 {
-  font-size: 2.2em;
-  margin-bottom: 15px;
-  color: #e6f1ff;
-  font-weight: 300;
+  /* font-size: 2.2em; Remove old size */
+  /* margin-bottom: 15px; Remove old margin */
+  /* color: #e6f1ff; Remove old color */
+  /* font-weight: 300; Remove old weight */
+  /* Apply styles similar to form h1 */
+  color: rgba(255, 255, 255, 0.80);
+  text-align: center;
+  font-family: 'Bigilla', serif;
+  font-size: 3rem; /* Adjust size as needed */
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.2;
+  align-self: stretch;
+  margin-bottom: 1rem;
 }
 
 .thank-you-container p {
-  font-size: 1.1em;
-  color: #a8b2d1;
-  font-weight: 300;
-  line-height: 1.5;
+  /* font-size: 1.1em; Remove old size */
+  /* color: #a8b2d1; Remove old color */
+  /* font-weight: 300; Remove old weight */
+  /* line-height: 1.5; Remove old line-height */
+  /* Apply styles similar to form h2 */
+  color: rgba(255, 255, 255, 0.80);
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2rem; /* Adjust size as needed */
+  font-style: normal;
+  font-weight: 200;
+  line-height: 1.4;
+  align-self: stretch;
+  margin-bottom: 0; /* No margin needed usually for last element */
+}
+
+/* Style for the actual form element */
+.booking-form {
+  width: 100%; /* Make form take full width of its container */
+  /* Remove background properties from here */
+  /* background: url('assets/images/form-bg.png'); */
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  padding: 0; /* Remove padding added here, manage padding within form-container or on elements */
+  /* border-radius: 15px; Remove radius added here */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* --- Responsive Styles --- */
+
+@media (max-width: 768px) {
+  /* Screensaver adjustments */
+  .logo-container {
+    width: 80%;
+    max-width: 400px;
+  }
+
+  .fish-image {
+    width: 60%;
+    max-width: 300px;
+    height: 60px;
+    margin-top: -20px;
+  }
+
+  .screensaver-button {
+    font-size: 2rem; /* Smaller font */
+    padding: 15px 40px; /* Reduced padding */
+    border-radius: 40px; /* Smaller radius */
+  }
+
+  /* Form adjustments */
+  .form-container {
+    padding: 30px 20px; /* Reduced padding */
+    max-width: 95%;
+  }
+
+  .form-container h1 {
+    font-size: 2.5rem; /* Smaller font */
+    margin-bottom: 0.8rem;
+  }
+
+  .form-container h2 {
+    font-size: 1.1rem; /* Smaller font */
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"] {
+    padding: 15px 20px; /* Reduced padding */
+  }
+
+  .checkbox-group {
+    margin-bottom: 20px;
+  }
+
+  .checkbox-group input[type="checkbox"] {
+    width: 30px; /* Smaller checkbox */
+    height: 30px;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+
+  .checkbox-group input[type="checkbox"]::after {
+    left: 10px; /* Adjust checkmark pos */
+    top: 5px; /* Adjust checkmark pos */
+    width: 8px; /* Smaller checkmark */
+    height: 15px;
+    border-width: 0 3px 3px 0;
+  }
+
+  .checkbox-group label {
+    font-size: 0.9rem; /* Smaller font */
+  }
+
+  .cta-button {
+    padding: 20px 20px; /* Reduced padding */
+    font-size: 1rem;
+  }
+
+  .thank-you-container {
+    padding: 30px 20px;
+  }
+
+  .thank-you-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .thank-you-container p {
+    font-size: 1rem;
+  }
 }

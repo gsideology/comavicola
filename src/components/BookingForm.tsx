@@ -69,7 +69,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
       <h1>Riserva il tuo posto per un'esperienza unica con il nostro chef!</h1>
       <h2>Inserisci i tuoi dati e preparati per un viaggio tra sapori indimenticabili.</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="booking-form">
         {errors.root && (
           <div className="form-errors">
             <p className="error-message">{errors.root.message}</p>
