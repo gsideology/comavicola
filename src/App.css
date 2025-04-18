@@ -1,27 +1,3 @@
-@font-face {
-  font-family: 'Bigilla';
-  src: url('assets/fonts/woff 2/Bigilla.woff2') format('woff2'), 
-       url('assets/fonts/woff/Bigilla.woff') format('woff');   
-  font-weight: 700; /* Corresponds to Bold */
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Raleway';
-  src: url('./assets/fonts/woff 2/Classy Coiffeur Regular.woff2') format('woff2'),
-       url('./assets/fonts/woff/Classy Coiffeur Regular.woff') format('woff');
-  font-weight: 400; /* Regular */
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Raleway';
-  src: url('./assets/fonts/woff 2/LibreCaslonDisplay-Regular.woff2') format('woff2'),
-       url('./assets/fonts/woff/LibreCaslonDisplay-Regular.woff') format('woff');
-  font-weight: 200; /* Light */
-  font-style: normal;
-}
-
 body, html {
   margin: 0;
   padding: 0;
@@ -35,7 +11,6 @@ body, html {
 .app {
   width: 100%;
   height: 100%;
-  min-height: 100vh; /* Ensure it covers viewport height */
   position: relative;
 }
 
@@ -55,10 +30,7 @@ body, html {
   left: 0;
   width: 100%;
   height: 100%;
-  background:
-    radial-gradient(132.73% 115.46% at 83.93% 2.5%, rgba(255, 255, 255, 0.55) 0%, rgba(3, 53, 93, 0.28) 40.6%, rgba(3, 53, 93, 0.55) 70.1%),
-    linear-gradient(0deg, rgba(3, 53, 93, 0.35) 0%, rgba(3, 53, 93, 0.35) 100%),
-    url('./assets/images/screensaver-bg.png') lightgray 50% / cover no-repeat;
+  background-color: #001f3f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,23 +80,10 @@ body, html {
 
 .screensaver-button {
   cursor: pointer;
-  font-family: 'Bigilla', serif; /* Use Bigilla font with fallback */
-  font-size: 3rem; /* Scaled down from 80.943px */
-  font-weight: 700;
-  color: #FFFFFF;
-  line-height: normal;
-  display: inline-flex; /* Use flex for centering text if needed */
-  padding: 26.793px 80.379px; /* Apply exact Figma padding */
-  justify-content: center;
-  align-items: center;
-  gap: 8.931px; /* Apply exact Figma gap */
-  border-radius: 71.448px; /* Apply exact Figma radius */
-  border: 1.34px solid #FFF; /* Apply exact Figma border */
-  background-color: transparent; /* Ensure background is transparent */
-  margin-top: 20px; /* Adjust spacing as needed */
-  z-index: 1;
-  position: relative;
   transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 120px;
+  position: relative;
+  z-index: 1;
 }
 
 .screensaver-button:hover {
@@ -133,21 +92,17 @@ body, html {
 }
 
 .form-container {
-  /* Responsive Settings */
+  position: absolute;
+  top:  50vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(10, 25, 47, 0.85);
+  padding: 50px 60px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   width: 90%;
-  max-width: 750px; /* Adjust if needed, but keeps it contained */
-  padding: 30px 60px; /* Use the previously reduced padding */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 45.076px;
-  border: 2.254px solid rgba(255, 255, 255, 0.80);
-  background: 
-    radial-gradient(132.73% 115.46% at 83.93% 2.5%, rgba(255, 255, 255, 0.55) 0%, rgba(3, 53, 93, 0.28) 40.6%, rgba(3, 53, 93, 0.55) 70.1%),
-    url('assets/images/form-bg.png') lightgray 50% / cover no-repeat; /* Restore combined background */
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-  /* Keep transitions and other props */
+  max-width: 550px;
   opacity: 0;
   transition: opacity 0.5s ease-in 0.3s;
   pointer-events: none;
@@ -163,27 +118,18 @@ body, html {
 }
 
 .form-container h1 {
-  color: rgba(255, 255, 255, 0.80);
-  text-align: center;
-  font-family: 'Bigilla', serif; /* Use Bigilla font */
-  font-size: 3.5rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.2; /* Adjust line-height */
-  align-self: stretch;
-  margin-bottom: 0.8rem;
+  font-size: 2.2em;
+  margin-bottom: 15px;
+  color: #e6f1ff;
+  font-weight: 300;
 }
 
 .form-container h2 {
-  color: rgba(255, 255, 255, 0.80);
-  text-align: center;
-  font-family: 'Raleway', sans-serif; /* Use Raleway font */
-  font-size: 1.3rem;
-  font-style: normal;
-  font-weight: 200; /* Light weight */
-  line-height: 1.4; /* Adjust line-height */
-  align-self: stretch;
-  margin-bottom: 2rem;
+  font-size: 1.1em;
+  margin-bottom: 40px;
+  color: #a8b2d1;
+  font-weight: 300;
+  line-height: 1.5;
 }
 
 .form-group {
@@ -202,15 +148,14 @@ body, html {
 .form-group input[type="text"],
 .form-group input[type="email"] {
   width: 100%;
-  padding: 18.03px 36.061px; /* Apply Figma padding */
-  border-radius: 18.03px; /* Apply Figma radius */
-  background: rgba(255, 255, 255, 0.80); /* Apply Figma background */
-  border: none; /* Ensure no default border */
-  color: #1d2a3d; /* Keep dark text color for readability */
-  font-size: 1rem; /* Adjust if needed */
-  box-sizing: border-box; /* Keep box-sizing */
+  padding: 15px;
+  background-color: #e0e4e8;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #1d2a3d;
+  font-size: 1em;
   transition: box-shadow 0.2s ease-in-out;
-  height: auto; /* Restore height auto */
 }
 
 .form-group input[type="text"]:focus,
@@ -229,76 +174,39 @@ body, html {
 }
 
 .checkbox-group input[type="checkbox"] {
+  margin-right: 12px;
+  width: 18px;
+  height: 18px;
   cursor: pointer;
-  appearance: none; /* Remove default styling */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 45.076px; /* Apply Figma width */
-  height: 45.076px; /* Apply Figma height */
-  border-radius: 13.523px; /* Apply Figma radius */
-  background-color: var(--Orange, #E35205); /* Apply Figma background */
-  flex-shrink: 0;
-  position: relative; /* Needed for pseudo-element positioning */
-  margin-right: 15px; /* Add some space between checkbox and label */
-  border: none; /* Ensure no border */
-  outline: none; /* Ensure no outline */
-}
-
-/* Style for the checkmark */
-.checkbox-group input[type="checkbox"]::after {
-  content: "";
-  position: absolute;
-  display: none; /* Hide by default */
-  left: 15px; /* Adjust position */
-  top: 7px; /* Adjust position */
-  width: 12px; /* Checkmark size */
-  height: 24px; /* Checkmark size */
-  border: solid white;
-  border-width: 0 4px 4px 0;
-  transform: rotate(45deg);
-}
-
-/* Show the checkmark when checked */
-.checkbox-group input[type="checkbox"]:checked::after {
-  display: block;
+  accent-color: #a8b2d1;
 }
 
 .checkbox-group label {
   margin-bottom: 0;
+  font-weight: 300;
+  color: #a8b2d1;
+  font-size: 0.95em;
   cursor: pointer;
-
-  /* New styles from Figma (first block) */
-  color: rgba(255, 255, 255, 0.80);
-  text-align: left; /* Align text to the left relative to checkbox */
-  font-family: 'Raleway', sans-serif;
-  font-size: 1rem; /* Scaled down from 31.553px */
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .cta-button {
-  /* New styles from Figma */
-  display: flex;
-  width: 100%; /* Keep full width */
-  padding: 38.315px 36.061px; /* Apply Figma padding */
-  justify-content: center;
-  align-items: center;
-  gap: 22.538px; /* Apply Figma gap */
-  border-radius: 27.046px; /* Apply Figma radius */
-  background: #E35205; /* Apply Figma background */
-  border: none; /* Remove border */
-  color: white; /* Set text color */
-  font-size: 1.2rem; /* Adjust font size as needed */
-  font-weight: 400; /* Keep weight */
+  background-color: #0a192f;
+  color: #e6f1ff;
+  padding: 15px 35px;
+  border: 1px solid #172a45;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 400;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Adjust transition */
-  margin-top: 20px; /* Add some margin */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  margin-top: 10px;
+  width: 100%;
   box-sizing: border-box;
 }
 
 .cta-button:hover {
-  background-color: #c84a04; /* Darken orange on hover */
+  background-color: #172a45;
+  border-color: #2a3f5a;
 }
 
 .form-errors .error-message,
@@ -322,46 +230,33 @@ body, html {
 }
 
 .thank-you-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(10, 25, 47, 0.85);
+  padding: 50px 60px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   width: 90%;
-  max-width: 750px; /* Keep max-width, same as form */
-  padding: 50px 60px; /* Keep padding, adjust if needed */
+  max-width: 550px;
   text-align: center;
-  color: #ccd6f6; /* Keep text color */
-
-  /* Apply styles from form-container */
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-  border-radius: 45.076px; /* Apply Figma radius */
-  border: 2.254px solid rgba(255, 255, 255, 0.80); /* Apply Figma border */
-  background: 
-    radial-gradient(132.73% 115.46% at 83.93% 2.5%, rgba(255, 255, 255, 0.55) 0%, rgba(3, 53, 93, 0.28) 40.6%, rgba(3, 53, 93, 0.55) 70.1%),
-    url('assets/images/form-bg.png') lightgray 50% / cover no-repeat;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); /* Apply Figma shadow */
+  color: #ccd6f6;
 }
 
 .thank-you-container h1 {
-  color: rgba(255, 255, 255, 0.80);
-  text-align: center;
-  font-family: 'Bigilla', serif;
-  font-size: 3rem; /* Adjust size as needed */
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.2;
-  align-self: stretch;
-  margin-bottom: 1rem;
+  font-size: 2.2em;
+  margin-bottom: 15px;
+  color: #e6f1ff;
+  font-weight: 300;
 }
 
 .thank-you-container p {
-  color: rgba(255, 255, 255, 0.80);
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  font-size: 1.2rem; /* Adjust size as needed */
-  font-style: normal;
-  font-weight: 200;
-  line-height: 1.4;
-  align-self: stretch;
-  margin-bottom: 0; /* No margin needed usually for last element */
+  font-size: 1.1em;
+  color: #a8b2d1;
+  font-weight: 300;
+  line-height: 1.5;
 }
 
 /* Style for the actual form element */
@@ -395,18 +290,15 @@ body, html {
 
   /* Form adjustments */
   .form-container {
-    /* padding: 30px 20px; Padding already reduced here, keeping it */
     max-width: 95%;
   }
 
   .form-container h1 {
-    /* font-size: 2.5rem; Reduce responsive size slightly */
     font-size: 2.2rem;
     margin-bottom: 0.6rem;
   }
 
   .form-container h2 {
-    /* font-size: 1.1rem; Reduce responsive size slightly */
     font-size: 1rem;
     margin-bottom: 1.2rem;
   }
