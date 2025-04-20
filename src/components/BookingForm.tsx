@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { BookingFormData } from '../types/booking';
-import { supabase } from '../lib/supabase';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { BookingFormData } from "../types/booking";
+import { supabase } from "../lib/supabase";
 
 interface BookingFormProps {
   onSubmitSuccess: () => void;
@@ -20,8 +20,8 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
   const onSubmit = async (data: BookingFormData) => {
     setIsSubmitting(true);
     try {
-      const { data: result, error } = await supabase
-        .from('bookings')
+      const { data: error } = await supabase
+        .from("bookings")
         .insert([
           {
             firstName: data.firstName,
@@ -34,18 +34,24 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
         .select();
 
       if (error) {
-        console.error('Supabase error:', error);
-        if (error.message.includes('API key') || error.message.includes('apikey')) {
-          setError('root', { 
-            message: 'Errore di configurazione. Si prega di contattare l\'amministratore.' 
+        console.error("Supabase error:", error);
+        if (
+          error.message.includes("API key") ||
+          error.message.includes("apikey")
+        ) {
+          setError("root", {
+            message:
+              "Errore di configurazione. Si prega di contattare l'amministratore.",
           });
-        } else if (error.message.includes('permission')) {
-          setError('root', { 
-            message: 'Errore di autorizzazione. Si prega di contattare l\'amministratore.' 
+        } else if (error.message.includes("permission")) {
+          setError("root", {
+            message:
+              "Errore di autorizzazione. Si prega di contattare l'amministratore.",
           });
         } else {
-          setError('root', { 
-            message: 'Si è verificato un errore durante il salvataggio della prenotazione. Riprova più tardi.' 
+          setError("root", {
+            message:
+              "Si è verificato un errore durante il salvataggio della prenotazione. Riprova più tardi.",
           });
         }
         return;
@@ -55,9 +61,10 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
       reset();
       onSubmitSuccess();
     } catch (error) {
-      console.error('Error submitting form:', error);
-      setError('root', { 
-        message: 'Si è verificato un errore durante il salvataggio della prenotazione. Riprova più tardi.' 
+      console.error("Error submitting form:", error);
+      setError("root", {
+        message:
+          "Si è verificato un errore durante il salvataggio della prenotazione. Riprova più tardi.",
       });
     } finally {
       setIsSubmitting(false);
@@ -67,7 +74,10 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
   return (
     <div className="form-container active">
       <h1>Riserva il tuo posto per un'esperienza unica con il nostro chef!</h1>
-      <h2>Inserisci i tuoi dati e preparati per un viaggio tra sapori indimenticabili.</h2>
+      <h2>
+        Inserisci i tuoi dati e preparati per un viaggio tra sapori
+        indimenticabili.
+      </h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="booking-form">
         {errors.root && (
@@ -82,8 +92,8 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
             id="firstName"
             type="text"
             placeholder="Mario"
-            {...register('firstName', { required: 'Il nome è obbligatorio' })}
-            className={errors.firstName ? 'error' : ''}
+            {...register("firstName", { required: "Il nome è obbligatorio" })}
+            className={errors.firstName ? "error" : ""}
             disabled={isSubmitting}
           />
           {errors.firstName && (
@@ -99,8 +109,8 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
             id="lastName"
             type="text"
             placeholder="Rossi"
-            {...register('lastName', { required: 'Il cognome è obbligatorio' })}
-            className={errors.lastName ? 'error' : ''}
+            {...register("lastName", { required: "Il cognome è obbligatorio" })}
+            className={errors.lastName ? "error" : ""}
             disabled={isSubmitting}
           />
           {errors.lastName && (
@@ -116,14 +126,14 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
             id="email"
             type="email"
             placeholder="mariorossi@gmail.com"
-            {...register('email', {
-              required: 'L\'email è obbligatoria',
+            {...register("email", {
+              required: "L'email è obbligatoria",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'Inserisci un indirizzo email valido',
+                message: "Inserisci un indirizzo email valido",
               },
             })}
-            className={errors.email ? 'error' : ''}
+            className={errors.email ? "error" : ""}
             disabled={isSubmitting}
           />
           {errors.email && (
@@ -137,8 +147,8 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
           <input
             id="termsAccepted"
             type="checkbox"
-            {...register('termsAccepted', {
-              required: 'Devi accettare i termini e le condizioni',
+            {...register("termsAccepted", {
+              required: "Devi accettare i termini e le condizioni",
             })}
             disabled={isSubmitting}
           />
@@ -152,16 +162,12 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
           )}
         </div>
 
-        <button 
-          type="submit" 
-          className="cta-button"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? 'Invio in corso...' : 'Prenota un posto'}
+        <button type="submit" className="cta-button" disabled={isSubmitting}>
+          {isSubmitting ? "Invio in corso..." : "Prenota un posto"}
         </button>
       </form>
     </div>
   );
 };
 
-export default BookingForm; 
+export default BookingForm;
