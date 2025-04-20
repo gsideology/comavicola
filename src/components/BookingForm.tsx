@@ -20,7 +20,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
   const onSubmit = async (data: BookingFormData) => {
     setIsSubmitting(true);
     try {
-      const { data: error } = await supabase
+      const { error } = await supabase
         .from("bookings")
         .insert([
           {
