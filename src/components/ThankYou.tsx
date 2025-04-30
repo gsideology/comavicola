@@ -3,8 +3,10 @@ import React from 'react';
 const ThankYou: React.FC = () => {
   return (
     <div className="thank-you-container">
-      <h1>Grazie per la tua prenotazione!</h1>
-      <p>Ti abbiamo inviato una email di conferma. A presto!</p>
+      <h1>Il tuo gadget ti aspetta, richiedilo allo stand!</h1>
+ 
+      <h1>Your gadget is waiting for you, claim it at the stand!</h1>
+  
     </div>
   );
 };
