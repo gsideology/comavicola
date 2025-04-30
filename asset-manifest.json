@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.460d8996.css",
-    "main.js": "/static/js/main.32d2de3e.js",
+    "main.css": "/static/css/main.acd40565.css",
+    "main.js": "/static/js/main.82e62449.js",
     "static/js/952.e9328bcd.chunk.js": "/static/js/952.e9328bcd.chunk.js",
     "static/js/453.220810fe.chunk.js": "/static/js/453.220810fe.chunk.js",
     "static/media/form-bg.png": "/static/media/form-bg.8478d61abc395ab80e40.png",
@@ -14,13 +14,13 @@
     "static/media/Classy Coiffeur Regular.woff2": "/static/media/Classy Coiffeur Regular.c8c3acd866617255761d.woff2",
     "static/media/Bigilla.woff2": "/static/media/Bigilla.a21e196437a43f697d0f.woff2",
     "index.html": "/index.html",
-    "main.460d8996.css.map": "/static/css/main.460d8996.css.map",
-    "main.32d2de3e.js.map": "/static/js/main.32d2de3e.js.map",
+    "main.acd40565.css.map": "/static/css/main.acd40565.css.map",
+    "main.82e62449.js.map": "/static/js/main.82e62449.js.map",
     "952.e9328bcd.chunk.js.map": "/static/js/952.e9328bcd.chunk.js.map",
     "453.220810fe.chunk.js.map": "/static/js/453.220810fe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.460d8996.css",
-    "static/js/main.32d2de3e.js"
+    "static/css/main.acd40565.css",
+    "static/js/main.82e62449.js"
   ]
 }
