@@ -1,11 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.f648eb1f.css",
-    "main.js": "/static/js/main.29e73b52.js",
+    "main.css": "/static/css/main.9c3f8066.css",
+    "main.js": "/static/js/main.ea799f98.js",
     "static/js/952.e9328bcd.chunk.js": "/static/js/952.e9328bcd.chunk.js",
     "static/js/453.220810fe.chunk.js": "/static/js/453.220810fe.chunk.js",
-    "static/media/screensaver-bg.png": "/static/media/screensaver-bg.b5ae06ff9a528fce5f6c.png",
-    "static/media/form-bg.png": "/static/media/form-bg.4612c54f742a396d9a17.png",
+    "static/media/form-bg.png": "/static/media/form-bg.8478d61abc395ab80e40.png",
     "static/media/fish.png": "/static/media/fish.b1ac8126f5d9b3acc0fe.png",
     "static/media/logo-full.png": "/static/media/logo-full.0d387369bd565424fc7a.png",
     "static/media/Bigilla.woff": "/static/media/Bigilla.5539930c273c2ec98310.woff",
@@ -15,13 +14,13 @@
     "static/media/Classy Coiffeur Regular.woff2": "/static/media/Classy Coiffeur Regular.c8c3acd866617255761d.woff2",
     "static/media/Bigilla.woff2": "/static/media/Bigilla.a21e196437a43f697d0f.woff2",
     "index.html": "/index.html",
-    "main.f648eb1f.css.map": "/static/css/main.f648eb1f.css.map",
-    "main.29e73b52.js.map": "/static/js/main.29e73b52.js.map",
+    "main.9c3f8066.css.map": "/static/css/main.9c3f8066.css.map",
+    "main.ea799f98.js.map": "/static/js/main.ea799f98.js.map",
     "952.e9328bcd.chunk.js.map": "/static/js/952.e9328bcd.chunk.js.map",
     "453.220810fe.chunk.js.map": "/static/js/453.220810fe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f648eb1f.css",
-    "static/js/main.29e73b52.js"
+    "static/css/main.9c3f8066.css",
+    "static/js/main.ea799f98.js"
   ]
 }
