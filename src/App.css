@@ -79,6 +79,8 @@ body, html {
   opacity: 1;
   transition: opacity 0.5s ease-out;
   z-index: 100;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .screensaver:not(.active) {
@@ -97,6 +99,8 @@ body, html {
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .screensaver-content {
@@ -110,6 +114,7 @@ body, html {
   height: 100%;
   text-align: center;
   color: #e6f1ff;
+  touch-action: manipulation;
 }
 
 .logo-container {
@@ -135,26 +140,31 @@ body, html {
 
 .screensaver-button {
   cursor: pointer;
-  font-family: 'Bigilla', serif; /* Use Bigilla font with fallback */
-  font-size: 3rem; /* Scaled down from 80.943px */
+  font-family: 'Bigilla', serif;
+  font-size: 3rem;
   font-weight: 700;
   color: #FFFFFF;
   line-height: normal;
-  display: inline-flex; /* Use flex for centering text if needed */
-  padding: 26.793px 80.379px; /* Apply exact Figma padding */
+  display: inline-flex;
+  padding: 26.793px 80.379px;
   justify-content: center;
   align-items: center;
-  gap: 8.931px; /* Apply exact Figma gap */
-  border-radius: 71.448px; /* Apply exact Figma radius */
-  border: 1.34px solid #FFF; /* Apply exact Figma border */
-  background-color: transparent; /* Ensure background is transparent */
-  margin-top: 20px; /* Adjust spacing as needed */
+  gap: 8.931px;
+  border-radius: 71.448px;
+  border: 1.34px solid #FFF;
+  background-color: transparent;
+  margin-top: 20px;
   z-index: 1;
   position: relative;
   transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  min-height: 44px; /* Minimum touch target size */
+  min-width: 44px;
 }
 
-.screensaver-button:hover {
+.screensaver-button:hover,
+.screensaver-button:active {
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
 }
@@ -401,8 +411,31 @@ body, html {
 
 /* --- Responsive Styles --- */
 
+@media (max-width: 1024px) {
+  .screensaver-button {
+    font-size: 2.5rem;
+    padding: 20px 60px;
+  }
+
+  .logo-container {
+    width: 90%;
+    max-width: 800px;
+  }
+
+  .fish-image {
+    width: 70%;
+    max-width: 400px;
+    height: 70px;
+  }
+}
+
 @media (max-width: 768px) {
-  /* Screensaver adjustments */
+  .screensaver-button {
+    font-size: 2rem;
+    padding: 15px 40px;
+    border-radius: 40px;
+  }
+
   .logo-container {
     width: 80%;
     max-width: 400px;
@@ -415,33 +448,23 @@ body, html {
     margin-top: -20px;
   }
 
-  .screensaver-button {
-    font-size: 2rem; /* Smaller font */
-    padding: 15px 40px; /* Reduced padding */
-    border-radius: 40px; /* Smaller radius */
-  }
-
-  /* Form adjustments */
   .form-container {
-    /* padding: 30px 20px; Padding already reduced here, keeping it */
     max-width: 95%;
   }
 
   .form-container h1 {
-    /* font-size: 2.5rem; Reduce responsive size slightly */
     font-size: 2.2rem;
     margin-bottom: 0.6rem;
   }
 
   .form-container h2 {
-    /* font-size: 1.1rem; Reduce responsive size slightly */
     font-size: 1rem;
     margin-bottom: 1.2rem;
   }
 
   .form-group input[type="text"],
   .form-group input[type="email"] {
-    padding: 15px 20px; /* Reduced padding */
+    padding: 15px 20px;
   }
 
   .checkbox-group {
@@ -449,26 +472,26 @@ body, html {
   }
 
   .checkbox-group input[type="checkbox"] {
-    width: 30px; /* Smaller checkbox */
+    width: 30px;
     height: 30px;
     border-radius: 8px;
     margin-right: 10px;
   }
 
   .checkbox-group input[type="checkbox"]::after {
-    left: 10px; /* Adjust checkmark pos */
-    top: 5px; /* Adjust checkmark pos */
-    width: 8px; /* Smaller checkmark */
+    left: 10px;
+    top: 5px;
+    width: 8px;
     height: 15px;
     border-width: 0 3px 3px 0;
   }
 
   .checkbox-group label {
-    font-size: 0.9rem; /* Smaller font */
+    font-size: 0.9rem;
   }
 
   .cta-button {
-    padding: 20px 20px; /* Reduced padding */
+    padding: 20px 20px;
     font-size: 1rem;
   }
 

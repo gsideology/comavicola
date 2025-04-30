@@ -16,43 +16,63 @@ const Screensaver: React.FC<ScreensaverProps> = ({ isActive, onStart }) => {
   useEffect(() => {
     const container = containerRef.current;
     if (container && isActive) {
-      $(container).ripples({
-        resolution: 512,
-        dropRadius: 20,
-        perturbance: 0.04,
-        interactive: true
-      });
+      try {
+        $(container).ripples({
+          resolution: 512,
+          dropRadius: 20,
+          perturbance: 0.04,
+          interactive: true,
+          crossOrigin: 'anonymous'
+        });
+      } catch (error) {
+        console.warn('Ripples effect not supported on this device:', error);
+      }
     }
 
     return () => {
       if (container) {
-        $(container).ripples('destroy');
+        try {
+          $(container).ripples('destroy');
+        } catch (error) {
+          console.warn('Error destroying ripples:', error);
+        }
       }
     };
   }, [isActive]);
 
   useEffect(() => {
-    if (videoRef.current) {
+    const video = videoRef.current;
+    if (video) {
       if (isActive) {
-        videoRef.current.play();
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.warn('Video autoplay failed:', error);
+          });
+        }
       } else {
-        videoRef.current.pause();
+        video.pause();
       }
     }
   }, [isActive]);
 
-  const handleClick = () => {
-    setIsWaving(true);
-    setTimeout(() => {
-      onStart();
-      setIsWaving(false);
-    }, 1500);
+  const handleInteraction = (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault();
+    if (!isWaving) {
+      setIsWaving(true);
+      setTimeout(() => {
+        onStart();
+        setIsWaving(false);
+      }, 1500);
+    }
   };
 
   return (
     <div 
       ref={containerRef}
       className={`screensaver ${isActive ? 'active' : ''}`}
+      onClick={handleInteraction}
+      onTouchStart={handleInteraction}
     >
       <video
         ref={videoRef}
@@ -61,6 +81,7 @@ const Screensaver: React.FC<ScreensaverProps> = ({ isActive, onStart }) => {
         muted
         loop
         playsInline
+        preload="auto"
       >
         <source src="/video.mp4" type="video/mp4" />
       </video>
@@ -93,7 +114,11 @@ const Screensaver: React.FC<ScreensaverProps> = ({ isActive, onStart }) => {
             </motion.div>
           )}
         </AnimatePresence>
-        <button className="screensaver-button" onClick={handleClick}>
+        <button 
+          className="screensaver-button" 
+          onClick={handleInteraction}
+          onTouchStart={handleInteraction}
+        >
           clicca qui
         </button>
       </div>
