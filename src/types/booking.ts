@@ -3,6 +3,7 @@ export interface BookingFormData {
   lastName: string;
   email: string;
   vatNumber: string;
+  companyName: string;
   termsAccepted: boolean;
 }
 

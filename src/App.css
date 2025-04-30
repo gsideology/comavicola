@@ -138,28 +138,33 @@ body, html {
   position: relative; /* Needed for z-index */
 }
 
+.language-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
 .screensaver-button {
   cursor: pointer;
   font-family: 'Bigilla', serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #FFFFFF;
   line-height: normal;
   display: inline-flex;
-  padding: 26.793px 80.379px;
+  padding: 20px 40px;
   justify-content: center;
   align-items: center;
   gap: 8.931px;
   border-radius: 71.448px;
   border: 1.34px solid #FFF;
   background-color: transparent;
-  margin-top: 20px;
   z-index: 1;
   position: relative;
   transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-  min-height: 44px; /* Minimum touch target size */
+  min-height: 44px;
   min-width: 44px;
 }
 
@@ -191,7 +196,8 @@ body, html {
   text-align: center;
   color: #ccd6f6;
   box-sizing: border-box;
-  position: relative;
+  position: relative;  
+  justify-content: center;
 }
 
 .form-container.active {
@@ -412,9 +418,13 @@ body, html {
 /* --- Responsive Styles --- */
 
 @media (max-width: 1024px) {
+  .language-buttons {
+    gap: 15px;
+  }
+
   .screensaver-button {
-    font-size: 2.5rem;
-    padding: 20px 60px;
+    font-size: 2rem;
+    padding: 15px 30px;
   }
 
   .logo-container {
@@ -430,9 +440,14 @@ body, html {
 }
 
 @media (max-width: 768px) {
+  .language-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .screensaver-button {
-    font-size: 2rem;
-    padding: 15px 40px;
+    font-size: 1.8rem;
+    padding: 12px 25px;
     border-radius: 40px;
   }
 

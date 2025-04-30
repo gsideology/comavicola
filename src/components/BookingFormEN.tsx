@@ -7,7 +7,7 @@ interface BookingFormProps {
   onSubmitSuccess: () => void;
 }
 
-const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
+const BookingFormEN: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const {
@@ -19,7 +19,6 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
   } = useForm<BookingFormData>();
 
   useEffect(() => {
-    // Add a small delay to ensure the form appears after the screensaver transition
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 100);
@@ -52,31 +51,26 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
           error.message.includes("apikey")
         ) {
           setError("root", {
-            message:
-              "Errore di configurazione. Si prega di contattare l'amministratore.",
+            message: "Configuration error. Please contact the administrator.",
           });
         } else if (error.message.includes("permission")) {
           setError("root", {
-            message:
-              "Errore di autorizzazione. Si prega di contattare l'amministratore.",
+            message: "Authorization error. Please contact the administrator.",
           });
         } else {
           setError("root", {
-            message:
-              "Si è verificato un errore durante il salvataggio della prenotazione. Riprova più tardi.",
+            message: "An error occurred while saving the booking. Please try again later.",
           });
         }
         return;
       }
 
-      // Reset form and show success
       reset();
       onSubmitSuccess();
     } catch (error) {
       console.error("Error submitting form:", error);
       setError("root", {
-        message:
-          "Si è verificato un errore durante il salvataggio della prenotazione. Riprova più tardi.",
+        message: "An error occurred while saving the booking. Please try again later.",
       });
     } finally {
       setIsSubmitting(false);
@@ -98,12 +92,12 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
         )}
 
         <div className="form-group">
-          <label htmlFor="firstName">Nome</label>
+          <label htmlFor="firstName">First Name</label>
           <input
             id="firstName"
             type="text"
-            placeholder="Mario"
-            {...register("firstName", { required: "Il nome è obbligatorio" })}
+            placeholder="John"
+            {...register("firstName", { required: "First name is required" })}
             className={errors.firstName ? "error" : ""}
             disabled={isSubmitting}
           />
@@ -115,12 +109,12 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="lastName">Cognome</label>
+          <label htmlFor="lastName">Last Name</label>
           <input
             id="lastName"
             type="text"
-            placeholder="Rossi"
-            {...register("lastName", { required: "Il cognome è obbligatorio" })}
+            placeholder="Doe"
+            {...register("lastName", { required: "Last name is required" })}
             className={errors.lastName ? "error" : ""}
             disabled={isSubmitting}
           />
@@ -132,12 +126,12 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="companyName">Azienda</label>
+          <label htmlFor="companyName">Company</label>
           <input
             id="companyName"
             type="text"
-            placeholder="La tua azienda"
-            {...register("companyName", { required: "Il nome dell'azienda è obbligatorio" })}
+            placeholder="Your company"
+            {...register("companyName", { required: "Company name is required" })}
             className={errors.companyName ? "error" : ""}
             disabled={isSubmitting}
           />
@@ -153,12 +147,12 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
           <input
             id="email"
             type="email"
-            placeholder="mariorossi@gmail.com"
+            placeholder="johndoe@example.com"
             {...register("email", {
-              required: "L'email è obbligatoria",
+              required: "Email is required",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Inserisci un indirizzo email valido",
+                message: "Please enter a valid email address",
               },
             })}
             className={errors.email ? "error" : ""}
@@ -172,16 +166,16 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="vatNumber">Partita IVA</label>
+          <label htmlFor="vatNumber">VAT Number</label>
           <input
             id="vatNumber"
             type="text"
             placeholder="12345678901"
             {...register("vatNumber", {
-              required: "La partita IVA è obbligatoria",
+              required: "VAT number is required",
               pattern: {
                 value: /^[0-9]{11}$/,
-                message: "La partita IVA deve essere composta da 11 numeri",
+                message: "VAT number must be 11 digits",
               },
             })}
             className={errors.vatNumber ? "error" : ""}
@@ -199,12 +193,12 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
             id="termsAccepted"
             type="checkbox"
             {...register("termsAccepted", {
-              required: "Devi accettare i termini e le condizioni",
+              required: "You must accept the terms and conditions",
             })}
             disabled={isSubmitting}
           />
           <label htmlFor="termsAccepted">
-            Accetta i termini e condizioni di Comavicola
+            Accept Comavicola's terms and conditions
           </label>
           {errors.termsAccepted && (
             <div className="field-errors">
@@ -214,11 +208,11 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
         </div>
 
         <button type="submit" className="cta-button" disabled={isSubmitting}>
-          {isSubmitting ? "Invio in corso..." : "Richiedi il Tuo Gadget"}
+          {isSubmitting ? "Sending..." : "Claim Your Gadget"}
         </button>
       </form>
     </div>
   );
 };
 
-export default BookingForm;
+export default BookingFormEN; 

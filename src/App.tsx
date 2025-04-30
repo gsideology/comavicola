@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Screensaver from './components/Screensaver';
 import BookingForm from './components/BookingForm';
+import BookingFormEN from './components/BookingFormEN';
 import ThankYou from './components/ThankYou';
 import './App.css';
 
 function App() {
   const [showScreensaver, setShowScreensaver] = useState(true);
   const [showThankYou, setShowThankYou] = useState(false);
+  const [language, setLanguage] = useState<'it' | 'en'>('it');
 
-  const handleStart = () => {
+  const handleStart = (selectedLanguage: 'it' | 'en') => {
+    setLanguage(selectedLanguage);
     setShowScreensaver(false);
   };
 
@@ -32,8 +35,12 @@ function App() {
     <div className={`app ${(!showScreensaver || showThankYou) ? 'center-content' : ''}`}>
       <Screensaver isActive={showScreensaver} onStart={handleStart} />
       {!showScreensaver && !showThankYou && (
-        <div style={{ position: 'relative', zIndex: 200 }}>
-          <BookingForm onSubmitSuccess={handleBookingSuccess} />
+        <div style={{ position: 'relative', zIndex: 200, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          {language === 'it' ? (
+            <BookingForm onSubmitSuccess={handleBookingSuccess} />
+          ) : (
+            <BookingFormEN onSubmitSuccess={handleBookingSuccess} />
+          )}
         </div>
       )}
       {showThankYou && <ThankYou />}

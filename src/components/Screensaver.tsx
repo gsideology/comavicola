@@ -5,7 +5,7 @@ import 'jquery.ripples';
 
 interface ScreensaverProps {
   isActive: boolean;
-  onStart: () => void;
+  onStart: (language: 'it' | 'en') => void;
 }
 
 const Screensaver: React.FC<ScreensaverProps> = ({ isActive, onStart }) => {
@@ -56,12 +56,12 @@ const Screensaver: React.FC<ScreensaverProps> = ({ isActive, onStart }) => {
     }
   }, [isActive]);
 
-  const handleInteraction = (e: React.MouseEvent | React.TouchEvent) => {
+  const handleInteraction = (language: 'it' | 'en') => (e: React.MouseEvent | React.TouchEvent) => {
     e.preventDefault();
     if (!isWaving) {
       setIsWaving(true);
       setTimeout(() => {
-        onStart();
+        onStart(language);
         setIsWaving(false);
       }, 1500);
     }
@@ -71,8 +71,6 @@ const Screensaver: React.FC<ScreensaverProps> = ({ isActive, onStart }) => {
     <div 
       ref={containerRef}
       className={`screensaver ${isActive ? 'active' : ''}`}
-      onClick={handleInteraction}
-      onTouchStart={handleInteraction}
     >
       <video
         ref={videoRef}
@@ -114,13 +112,22 @@ const Screensaver: React.FC<ScreensaverProps> = ({ isActive, onStart }) => {
             </motion.div>
           )}
         </AnimatePresence>
-        <button 
-          className="screensaver-button" 
-          onClick={handleInteraction}
-          onTouchStart={handleInteraction}
-        >
-          clicca qui
-        </button>
+        <div className="language-buttons">
+          <button 
+            className="screensaver-button" 
+            onClick={handleInteraction('it')}
+            onTouchStart={handleInteraction('it')}
+          >
+            Italiano
+          </button>
+          <button 
+            className="screensaver-button" 
+            onClick={handleInteraction('en')}
+            onTouchStart={handleInteraction('en')}
+          >
+            English
+          </button>
+        </div>
       </div>
     </div>
   );
