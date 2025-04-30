@@ -4,13 +4,10 @@
        url('assets/fonts/woff/Bigilla.woff') format('woff');   
   font-weight: 700; /* Corresponds to Bold */
   font-style: normal;
-
-
-  
 }
 
 @font-face {
-  font-family: 'Raleway';
+  font-family: 'Classy Coiffeur';
   src: url('./assets/fonts/woff 2/Classy Coiffeur Regular.woff2') format('woff2'),
        url('./assets/fonts/woff/Classy Coiffeur Regular.woff') format('woff');
   font-weight: 400; /* Regular */
@@ -146,11 +143,12 @@ body, html {
 
 .screensaver-button {
   cursor: pointer;
-  font-family: 'Bigilla', serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #FFFFFF;
+  font-family: "Classy Coiffeur", serif;
+  font-size: 80.943px;
+  font-style: normal;
+  font-weight: 400;
   line-height: normal;
+  color: #FFF;
   display: inline-flex;
   padding: 20px 40px;
   justify-content: center;
@@ -209,11 +207,11 @@ body, html {
 .form-container h1 {
   color: rgba(255, 255, 255, 0.80);
   text-align: center;
-  font-family: 'Bigilla', serif; /* Use Bigilla font */
+  font-family: 'Classy Coiffeur', serif;
   font-size: 3.5rem;
   font-style: normal;
-  font-weight: 700;
-  line-height: 1.2; /* Adjust line-height */
+  font-weight: 400;
+  line-height: 1.2;
   align-self: stretch;
   margin-bottom: 0.8rem;
 }
@@ -221,11 +219,11 @@ body, html {
 .form-container h2 {
   color: rgba(255, 255, 255, 0.80);
   text-align: center;
-  font-family: 'Raleway', sans-serif; /* Use Raleway font */
+  font-family: 'Classy Coiffeur', serif;
   font-size: 1.3rem;
   font-style: normal;
-  font-weight: 200; /* Light weight */
-  line-height: 1.4; /* Adjust line-height */
+  font-weight: 400;
+  line-height: 1.4;
   align-self: stretch;
   margin-bottom: 2rem;
 }
@@ -423,7 +421,7 @@ body, html {
   }
 
   .screensaver-button {
-    font-size: 2rem;
+    font-size: 60px;
     padding: 15px 30px;
   }
 
@@ -446,7 +444,7 @@ body, html {
   }
 
   .screensaver-button {
-    font-size: 1.8rem;
+    font-size: 40px;
     padding: 12px 25px;
     border-radius: 40px;
   }

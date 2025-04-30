@@ -85,7 +85,7 @@ const Screensaver: React.FC<ScreensaverProps> = ({ isActive, onStart }) => {
       </video>
       <div className="screensaver-content">
         <div className="logo-container">
-          <div className="fish-image"></div>
+         
         </div>
         <AnimatePresence>
           {isWaving && (

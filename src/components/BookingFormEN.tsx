@@ -79,9 +79,9 @@ const BookingFormEN: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
 
   return (
     <div className={`form-container ${isVisible ? 'active' : ''}`}>
-      <h1>Richiedi il tuo gadget gratuito</h1>
+      <h1>Claim your free gadget</h1>
       <h2>
-      Inserisci i tuoi dati qui sotto:
+      Enter your Info below:
       </h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="booking-form">
