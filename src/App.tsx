@@ -25,16 +25,16 @@ function App() {
       }, 5000); // 5 seconds
     }
 
-    // Cleanup function to clear the timer if the component unmounts
-    // or if showThankYou becomes false before the timer finishes
     return () => clearTimeout(timer);
-  }, [showThankYou]); // Re-run effect when showThankYou changes
+  }, [showThankYou]);
 
   return (
     <div className={`app ${(!showScreensaver || showThankYou) ? 'center-content' : ''}`}>
       <Screensaver isActive={showScreensaver} onStart={handleStart} />
       {!showScreensaver && !showThankYou && (
-        <BookingForm onSubmitSuccess={handleBookingSuccess} />
+        <div style={{ position: 'relative', zIndex: 200 }}>
+          <BookingForm onSubmitSuccess={handleBookingSuccess} />
+        </div>
       )}
       {showThankYou && <ThankYou />}
     </div>

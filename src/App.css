@@ -4,6 +4,9 @@
        url('assets/fonts/woff/Bigilla.woff') format('woff');   
   font-weight: 700; /* Corresponds to Bold */
   font-style: normal;
+
+
+  
 }
 
 @font-face {
@@ -35,8 +38,22 @@ body, html {
 .app {
   width: 100%;
   height: 100%;
-  min-height: 100vh; /* Ensure it covers viewport height */
+  min-height: 100vh;
   position: relative;
+  overflow: hidden;
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .app.center-content {
@@ -55,10 +72,6 @@ body, html {
   left: 0;
   width: 100%;
   height: 100%;
-  background:
-    radial-gradient(132.73% 115.46% at 83.93% 2.5%, rgba(255, 255, 255, 0.55) 0%, rgba(3, 53, 93, 0.28) 40.6%, rgba(3, 53, 93, 0.55) 70.1%),
-    linear-gradient(0deg, rgba(3, 53, 93, 0.35) 0%, rgba(3, 53, 93, 0.35) 100%),
-    url('./assets/images/screensaver-bg.png') lightgray 50% / cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,12 +86,26 @@ body, html {
   pointer-events: none;
 }
 
+.screensaver .background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .screensaver-content {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -135,8 +162,8 @@ body, html {
 .form-container {
   /* Responsive Settings */
   width: 90%;
-  max-width: 750px; /* Adjust if needed, but keeps it contained */
-  padding: 30px 60px; /* Use the previously reduced padding */
+  max-width: 750px;
+  padding: 30px 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,21 +171,22 @@ body, html {
   border: 2.254px solid rgba(255, 255, 255, 0.80);
   background: 
     radial-gradient(132.73% 115.46% at 83.93% 2.5%, rgba(255, 255, 255, 0.55) 0%, rgba(3, 53, 93, 0.28) 40.6%, rgba(3, 53, 93, 0.55) 70.1%),
-    url('assets/images/form-bg.png') lightgray 50% / cover no-repeat; /* Restore combined background */
+    url('assets/images/form-bg.png') lightgray 50% / cover no-repeat;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-  /* Keep transitions and other props */
   opacity: 0;
-  transition: opacity 0.5s ease-in 0.3s;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in, visibility 0.5s ease-in;
   pointer-events: none;
-  z-index: 50;
+  z-index: 200;
   text-align: center;
   color: #ccd6f6;
   box-sizing: border-box;
+  position: relative;
 }
 
 .form-container.active {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 

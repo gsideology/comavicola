@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { BookingFormData } from "../types/booking";
 import { supabase } from "../lib/supabase";
@@ -9,6 +9,7 @@ interface BookingFormProps {
 
 const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const {
     register,
     handleSubmit,
@@ -16,6 +17,15 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
     setError,
     reset,
   } = useForm<BookingFormData>();
+
+  useEffect(() => {
+    // Add a small delay to ensure the form appears after the screensaver transition
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const onSubmit = async (data: BookingFormData) => {
     setIsSubmitting(true);
@@ -27,6 +37,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
             firstName: data.firstName,
             lastName: data.lastName,
             email: data.email,
+            vatNumber: data.vatNumber,
             termsAccepted: data.termsAccepted,
             created_at: new Date().toISOString(),
           },
@@ -72,7 +83,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
   };
 
   return (
-    <div className="form-container active">
+    <div className={`form-container ${isVisible ? 'active' : ''}`}>
       <h1>Riserva il tuo posto per un'esperienza unica con il nostro chef!</h1>
       <h2>
         Inserisci i tuoi dati e preparati per un viaggio tra sapori
@@ -139,6 +150,29 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
           {errors.email && (
             <div className="field-errors">
               <p className="error-message">{errors.email.message}</p>
+            </div>
+          )}
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="vatNumber">Partita IVA</label>
+          <input
+            id="vatNumber"
+            type="text"
+            placeholder="12345678901"
+            {...register("vatNumber", {
+              required: "La partita IVA è obbligatoria",
+              pattern: {
+                value: /^[0-9]{11}$/,
+                message: "La partita IVA deve essere composta da 11 numeri",
+              },
+            })}
+            className={errors.vatNumber ? "error" : ""}
+            disabled={isSubmitting}
+          />
+          {errors.vatNumber && (
+            <div className="field-errors">
+              <p className="error-message">{errors.vatNumber.message}</p>
             </div>
           )}
         </div>
