@@ -14,8 +14,9 @@ const Screensaver: React.FC<ScreensaverProps> = ({ isActive, onStart }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (containerRef.current && isActive) {
-      $(containerRef.current).ripples({
+    const container = containerRef.current;
+    if (container && isActive) {
+      $(container).ripples({
         resolution: 512,
         dropRadius: 20,
         perturbance: 0.04,
@@ -24,8 +25,8 @@ const Screensaver: React.FC<ScreensaverProps> = ({ isActive, onStart }) => {
     }
 
     return () => {
-      if (containerRef.current) {
-        $(containerRef.current).ripples('destroy');
+      if (container) {
+        $(container).ripples('destroy');
       }
     };
   }, [isActive]);
