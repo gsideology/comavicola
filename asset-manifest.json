@@ -1,12 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.0891b131.css",
+    "main.css": "/static/css/main.22a92ec7.css",
     "main.js": "/static/js/main.82e62449.js",
     "static/js/952.e9328bcd.chunk.js": "/static/js/952.e9328bcd.chunk.js",
     "static/js/453.220810fe.chunk.js": "/static/js/453.220810fe.chunk.js",
     "static/media/form-bg.png": "/static/media/form-bg.8478d61abc395ab80e40.png",
     "static/media/fish.png": "/static/media/fish.b1ac8126f5d9b3acc0fe.png",
-    "static/media/logo-full.png": "/static/media/logo-full.0d387369bd565424fc7a.png",
     "static/media/Bigilla.woff": "/static/media/Bigilla.5539930c273c2ec98310.woff",
     "static/media/LibreCaslonDisplay-Regular.woff": "/static/media/LibreCaslonDisplay-Regular.feb6b651920886b75775.woff",
     "static/media/LibreCaslonDisplay-Regular.woff2": "/static/media/LibreCaslonDisplay-Regular.202152d703ad28f3d415.woff2",
@@ -14,13 +13,13 @@
     "static/media/Classy Coiffeur Regular.woff2": "/static/media/Classy Coiffeur Regular.c8c3acd866617255761d.woff2",
     "static/media/Bigilla.woff2": "/static/media/Bigilla.a21e196437a43f697d0f.woff2",
     "index.html": "/index.html",
-    "main.0891b131.css.map": "/static/css/main.0891b131.css.map",
+    "main.22a92ec7.css.map": "/static/css/main.22a92ec7.css.map",
     "main.82e62449.js.map": "/static/js/main.82e62449.js.map",
     "952.e9328bcd.chunk.js.map": "/static/js/952.e9328bcd.chunk.js.map",
     "453.220810fe.chunk.js.map": "/static/js/453.220810fe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0891b131.css",
+    "static/css/main.22a92ec7.css",
     "static/js/main.82e62449.js"
   ]
 }
