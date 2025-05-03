@@ -532,6 +532,7 @@ body, html {
   border: none;
   cursor: pointer;
   padding: 12px 24px;
+  margin-bottom: 45px;
   transition: color 0.3s ease;
   z-index: 10;
 }
