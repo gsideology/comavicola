@@ -15,6 +15,10 @@ function App() {
     setShowScreensaver(false);
   };
 
+  const handleGoBack = () => {
+    setShowScreensaver(true);
+  };
+
   const handleBookingSuccess = () => {
     setShowThankYou(true);
   };
@@ -37,9 +41,9 @@ function App() {
       {!showScreensaver && !showThankYou && (
         <div style={{ position: 'relative', zIndex: 200, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           {language === 'it' ? (
-            <BookingForm onSubmitSuccess={handleBookingSuccess} />
+            <BookingForm onSubmitSuccess={handleBookingSuccess} onGoBack={handleGoBack} />
           ) : (
-            <BookingFormEN onSubmitSuccess={handleBookingSuccess} />
+            <BookingFormEN onSubmitSuccess={handleBookingSuccess} onGoBack={handleGoBack} />
           )}
         </div>
       )}

@@ -5,9 +5,10 @@ import { supabase } from "../lib/supabase";
 
 interface BookingFormProps {
   onSubmitSuccess: () => void;
+  onGoBack: () => void;
 }
 
-const BookingFormEN: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
+const BookingFormEN: React.FC<BookingFormProps> = ({ onSubmitSuccess, onGoBack }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const {
@@ -79,6 +80,9 @@ const BookingFormEN: React.FC<BookingFormProps> = ({ onSubmitSuccess }) => {
 
   return (
     <div className={`form-container ${isVisible ? 'active' : ''}`}>
+      <button className="go-back-button" onClick={onGoBack}>
+        ← Go Back
+      </button>
       <h1>Claim your free gadget</h1>
       <h2>
       Enter your Info below:
