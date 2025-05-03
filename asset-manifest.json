@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.ea31aabe.css",
+    "main.css": "/static/css/main.98aceb3a.css",
     "main.js": "/static/js/main.5b7b2ca8.js",
     "static/js/952.e9328bcd.chunk.js": "/static/js/952.e9328bcd.chunk.js",
     "static/js/453.220810fe.chunk.js": "/static/js/453.220810fe.chunk.js",
@@ -13,13 +13,13 @@
     "static/media/Classy Coiffeur Regular.woff2": "/static/media/Classy Coiffeur Regular.c8c3acd866617255761d.woff2",
     "static/media/Bigilla.woff2": "/static/media/Bigilla.a21e196437a43f697d0f.woff2",
     "index.html": "/index.html",
-    "main.ea31aabe.css.map": "/static/css/main.ea31aabe.css.map",
+    "main.98aceb3a.css.map": "/static/css/main.98aceb3a.css.map",
     "main.5b7b2ca8.js.map": "/static/js/main.5b7b2ca8.js.map",
     "952.e9328bcd.chunk.js.map": "/static/js/952.e9328bcd.chunk.js.map",
     "453.220810fe.chunk.js.map": "/static/js/453.220810fe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ea31aabe.css",
+    "static/css/main.98aceb3a.css",
     "static/js/main.5b7b2ca8.js"
   ]
 }
