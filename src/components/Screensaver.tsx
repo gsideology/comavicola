@@ -112,6 +112,13 @@ const Screensaver: React.FC<ScreensaverProps> = ({ isActive, onStart }) => {
             </motion.div>
           )}
         </AnimatePresence>
+
+<div className="cta-container">
+  <h1>Il tuo gadget ti aspetta, richiedilo allo stand!</h1>
+  <h1>Your gadget is waiting for you, claim it at the stand!</h1>
+</div>
+
+
         <div className="language-buttons">
           <button 
             className="screensaver-button" 
